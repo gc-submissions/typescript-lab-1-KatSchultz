@@ -10,15 +10,19 @@ const mountains: Mountain[] = [
 ];
 
 export function findNameOfTallestMountain(arr: Mountain[]) {
-  let max = arr[0].height;
-  let tallestMountain: string = "";
-  for (let elem of arr) {
-    if (max < elem.height) {
-      max = elem.height;
-      tallestMountain = elem.name;
+  if (arr !== []) {
+    let max = arr[0].height;
+    let tallestMountain: string = "";
+    for (let elem of arr) {
+      if (max < elem.height) {
+        max = elem.height;
+        tallestMountain = elem.name;
+      }
     }
+    return console.log(tallestMountain);
+  } else {
+    return [];
   }
-  return console.log(tallestMountain);
 }
 
 findNameOfTallestMountain(mountains);
