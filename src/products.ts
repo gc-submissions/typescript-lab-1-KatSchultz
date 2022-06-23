@@ -4,10 +4,10 @@ export interface Product {
 }
 
 const products: Product[] = [
-  { name: "shampoo", price: 5 },
+  { name: "shampoo", price: 6 },
   {
     name: "loofah",
-    price: 3,
+    price: 4,
   },
   {
     name: "bananas",
@@ -16,13 +16,13 @@ const products: Product[] = [
 ];
 
 export function calcAverageProductPrice(arr: Product[]) {
-  if (arr !== []) {
+  if (arr.length !== 0) {
     const average = arr.reduce((a, elem) => {
       return a + elem.price;
     }, 0);
-
     return average / arr.length;
-  } else return 0;
+  }
+  return 0;
 }
-
-calcAverageProductPrice(products);
+const averagePrice = calcAverageProductPrice(products);
+console.log("Average price:", averagePrice);

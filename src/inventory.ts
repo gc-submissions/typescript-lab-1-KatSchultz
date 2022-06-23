@@ -1,6 +1,6 @@
 import { Product } from "./products";
 
-interface InventoryItem {
+export interface InventoryItem {
   product: Product;
   quantity: number;
 }
@@ -17,17 +17,12 @@ const inventory: InventoryItem[] = [
   },
 ];
 
-function calcInventoryValue(arr: InventoryItem[]) {
+export function calcInventoryValue(arr: InventoryItem[]) {
   const value = arr.reduce((acc, elem) => {
-    console.log(
-      `price: ${elem.product.price} * quantity: ${elem.quantity} = ${
-        elem.product.price * elem.quantity
-      }`
-    );
     return acc + elem.product.price * elem.quantity;
   }, 0);
-  console.log("value", value);
   return value;
 }
 
-calcInventoryValue(inventory);
+const inventoryValue = calcInventoryValue(inventory);
+console.log("Inventory value: ", inventoryValue);
